@@ -1,11 +1,14 @@
-const express = require('express')
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 
-const app = express();
+dotenv.config({ path: `./config.env` });
+const app = require('./app');
 
-app.get("/",(req,res)=>{
-    res.send("hello Api");
-})
-app.get("/api/v1",(req,res) =>{
-    res.send("hello from server")
-})
-app.listen(3000,()=>console.log("server running"));
+mongoose
+  .connect(process.env.DATABASE)
+  .then(() => console.log('done'))
+  .catch((err) => console.log("not done"));
+const port = process.env.port || 3000;
+app.listen(port, () => {
+  console.log('the server is running');
+});
