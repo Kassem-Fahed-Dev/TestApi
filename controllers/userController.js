@@ -1,3 +1,4 @@
+const { now } = require('mongoose');
 const User = require('./../models/User');
 const catchAsync = require('./../utils/catchAsync');
 
