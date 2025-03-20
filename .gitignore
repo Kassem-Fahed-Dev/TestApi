@@ -1,3 +1,7 @@
 node_modules/
-public/
 config.env
+/public/
+package-lock.json
+/node_modules
+/public/
+/package-lock.json
