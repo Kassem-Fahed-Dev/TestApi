@@ -1,0 +1,11 @@
+{
+    "errors": {
+      "invalidCast": "Invalid {{path}}: {{value}}.",
+      "duplicateField": "The {{field}} {{value}} already exists. Please use another value!",
+      "validationFailed": "Invalid input data. {{errors}}",
+      "invalidToken": "Invalid token. Please log in again!",
+      "expiredToken": "Your token has expired! Please log in again.",
+      "genericError": "Something went very wrong!",
+      "login":"Incorrect email or password"
+    }
+  }

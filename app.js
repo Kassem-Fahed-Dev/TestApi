@@ -3,7 +3,8 @@ const morgan = require('morgan');
 const globalErrorHandler = require('./controllers/errorController');
 const app = express();
 const cors = require('cors');
-//const tourRouter = require('./routes/tourRouter');
+const i18next = require('./utils/i18n');
+const i18nextMiddleware = require('i18next-http-middleware');
 
 const userRouter = require('./routs/userRoutes');
 const auctionRouter = require('./routs/auctionRoutes');
@@ -20,6 +21,8 @@ const corsOptions ={
     credentials:true,           
     optionSuccessStatus:200
 }
+
+app.use(i18nextMiddleware.handle(i18next));
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static('public'));
