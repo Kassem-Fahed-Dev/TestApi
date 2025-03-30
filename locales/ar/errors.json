@@ -1,7 +1,7 @@
 {
   "errors": {
     "invalidCast": " غير صالح {{path}} : {{value}}.",
-    "duplicateField": "!{{field}} {{value}}  موجود بالفعل. الرجاء استخدام قيمة أخرى",
+    "duplicateField": "!{{field}} موجود بالفعل. الرجاء استخدام قيمة أخرى",
     "validationFailed": "بيانات الإدخال غير صالحة. {{errors}}",
     "invalidToken": "الرمز المميز غير صالح. يرجى تسجيل الدخول مرة أخرى!",
     "expiredToken": "انتهت صلاحية الرمز المميز! يرجى تسجيل الدخول مرة أخرى.",
