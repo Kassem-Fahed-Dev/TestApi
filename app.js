@@ -50,7 +50,7 @@ app.use('*', (req, res,next) => {
     ),
     httpOnly: true,
     secure: false,
-    sameSite: 'Lax',
+    sameSite: 'lax',
   };
   //if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
