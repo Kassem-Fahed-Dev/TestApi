@@ -49,7 +49,7 @@ app.use('*', (req, res,next) => {
       Date.now() + 90 * 24 * 60 * 60 * 1000,
     ),
     httpOnly: true,
-    secure: false,
+    secure: true,
     sameSite: 'lax',
   };
   //if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
