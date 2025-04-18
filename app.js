@@ -42,23 +42,20 @@ app.use(express.static('public'));
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/auctions', auctionRouter);
 
-app.use('/', (req, res) => {
+app.use('*', (req, res,next) => {
   const token = 'sddsdsdsss';
   const cookieOptions = {
     expires: new Date(
-      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
+      Date.now() + 90 * 24 * 60 * 60 * 1000,
     ),
     httpOnly: true,
     secure: false,
-    sameSite: 'lax',
+    sameSite: 'Lax',
   };
   //if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
   // Remove password from output
-  res.cookie('jwt', token, cookieOptions).status(statusCode).json({
-    status: 'success',
-    token,
-  });
+  res.cookie('jwt', token, cookieOptions).status(200).send("hello");
 });
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
