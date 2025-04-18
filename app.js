@@ -15,12 +15,12 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-const corsOptions ={
-    origin:'http://localhost:3000', 
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials:true,           
-    optionSuccessStatus:200
-}
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 
 app.use(i18nextMiddleware.handle(i18next));
 app.use(cors(corsOptions));
@@ -42,14 +42,15 @@ app.use(express.static('public'));
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/auctions', auctionRouter);
 
-app.use('/',(req,res)=>{
-  const token = 'sddsdsdsss'
+app.use('/', (req, res) => {
+  const token = 'sddsdsdsss';
   const cookieOptions = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
     ),
     httpOnly: true,
-    secure: true,
+    secure: false,
+    sameSite: 'lax',
   };
   //if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
@@ -58,7 +59,7 @@ app.use('/',(req,res)=>{
     status: 'success',
     token,
   });
-})
+});
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
