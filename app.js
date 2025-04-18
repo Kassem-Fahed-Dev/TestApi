@@ -43,14 +43,13 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/auctions', auctionRouter);
 
 app.use('*', (req, res,next) => {
-  const token = 'sddsdsdsss';
+  const token = 'sddsdsds';
   const cookieOptions = {
     expires: new Date(
       Date.now() + 90 * 24 * 60 * 60 * 1000,
     ),
     httpOnly: true,
     secure: true,
-    sameSite: 'lax',
   };
   //if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
